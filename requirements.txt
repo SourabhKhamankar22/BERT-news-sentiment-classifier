@@ -1,0 +1,19 @@
+streamlit
+
+# Transformers + model
+transformers
+torch
+sentencepiece
+sacremoses
+
+# For data handling and simple utilities
+pandas
+numpy
+
+# Optional: visualization (if you want to keep charts in Streamlit)
+matplotlib
+seaborn
+tabulate
+
+# Optional: sklearn metrics if you use them in backend (like confusion matrix)
+scikit-learn
