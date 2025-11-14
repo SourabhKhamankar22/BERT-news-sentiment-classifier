@@ -132,7 +132,7 @@ This confirms the **hierarchical BERT pipeline** is more accurate, reliable, and
 ## 🌐 Live Demo
 
 Try the deployed model here:  
-👉 **https://news-sentiment-classification-bert-6ttblrhr6bj3xkpiuve3l3.streamlit.app/**
+👉 **https://bert-news-sentiment-classifier-egsu3ojnmntfotixdxvq35.streamlit.app/**
 
 ---
 
