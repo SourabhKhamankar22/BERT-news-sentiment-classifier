@@ -167,7 +167,7 @@ sacremoses
 pandas
 ```
 
-## 🚀 Usage
+## 🚦 Usage
 
 ### A. Running the Live App Locally
 ```bash
@@ -255,6 +255,73 @@ prediction = predict_sentiment(text)
 print(prediction)
 # Output: {'sentiment': 'Positive', 'confidence': 0.9342}
 ```
+
+## 📉 Limitations
+While the hierarchical pipeline improved performance significantly, the model still faces several limitations:
+
+### 1. Limited Dataset Size & Imbalance
+The Positive and Neutral classes contain fewer and less diverse training samples.  
+This often leads to confusion between these two categories.
+
+### 2. Dataset Diversity & Bias
+A narrow writing style may introduce keyword bias (e.g., “profit”, “loss”), reducing the model’s deeper semantic understanding.
+
+### 3. Subjectivity of Sentiment
+Human labeling inconsistencies affect how borderline sentences are interpreted.
+
+### 4. Domain Shift / Specificity
+Performance may drop on domain-specific news (finance, legal, scientific).
+
+### 5. Hierarchical Pipeline Complexity
+Two models increase inference cost and error propagation.
+
+### 6. Limited Context of Headlines
+Short headlines lack context, making sentiment harder to interpret.
+
+---
+
+## 🔭 Future Scope
+This project opens several possibilities for future improvements:
+
+### 1. Larger, More Balanced Dataset
+Collecting more Positive and Neutral samples would further reduce confusion.
+
+### 2. Using Advanced Transformer Models
+Models like **RoBERTa, DeBERTa, ELECTRA, BERT-Large** may capture subtle cues better.
+
+### 3. Domain-Specific Fine-Tuning
+Specialized nuance detectors for finance, sports, politics, etc.
+
+### 4. Unified Pipeline via Knowledge Distillation
+A single distilled model for lower latency and simpler deployment.
+
+### 5. Multilingual Support
+Using **mBERT/XLM-R** to classify news globally.
+
+### 6. Multi-Label Sentiment Classification
+Extract multiple sentiments from a single headline or article.
+
+---
+
+## 🏁 Conclusion
+This project demonstrates that a traditional 3-class BERT model is insufficient for subtle news sentiment classification—especially for distinguishing **Positive** from **Neutral** headlines (baseline F1: **0.72**).
+
+To solve this, a hierarchical two-stage pipeline was built:
+
+- **Model 1:** Detects *Negative vs Not-Negative*  
+- **Model 2:** Detects *Neutral vs Positive*
+
+This architecture significantly improved class-wise performance:
+
+- **Negative:** F1 = **0.91**, Recall = **0.95**  
+- **Neutral:** F1 = **0.97**, Recall = **0.99**  
+- **Positive:** F1 improved from **0.72 → 0.82**
+
+With model accuracies of **0.97 (Model 1)** and **0.95 (Model 2)**, the final classifier is robust, context-aware, and reliable for real-world news sentiment analysis.
+
+With larger datasets and modern transformer architectures, this system can evolve into a highly scalable solution for news analytics and media intelligence.
+
+
 ## 📚 Citation
 If you use this work, please cite it as:
 ```bash
